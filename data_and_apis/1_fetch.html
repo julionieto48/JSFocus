@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="" id="laFoto" width="500px">
+    <script>
+        console.log('fetchiando la imagen');  // fetch responde con una promesa  teniendop en cuenta que es asincrono.. proporciona interfa js 
+
+        fetch('dog.jpg').then(respuesta =>{
+            console.log(respuesta);
+
+            return respuesta.blob(); // otra promesa
+
+        }).then(respuestaBlob =>{
+            console.log(respuestaBlob);
+            document.getElementById('laFoto').src = URL.createObjectURL(respuestaBlob);
+        }); // gets resolve when data is retreived  ... hacer algo con la respuesta 
+
+        //https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch
+    </script>
+</body>
+</html>

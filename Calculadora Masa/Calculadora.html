@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mass Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="calculadora_masa.js"></script>
+</head>
+<body>
+    <form action="">
+
+        <fieldset>
+            <label for="masa-in"> Input :</label>
+            <br />
+            <input type="number" placeholder= "Ingresar masa..." id="masa-in">
+            <br />
+            <select id="Input_unit">
+                <option value="gramo"> Gramo </option>
+                <option value="kilogramo">Kilogramo </option>
+                <option value="libra">Libra </option>
+            </select>
+            <br />
+
+            <i class="fa-duotone fa-arrow-right"></i>
+            <br />
+
+
+            <label for="result"> Result:</label>
+            <br />
+            <a href="result"  id="result" > <span ></span> </a>
+            <br />
+            <select id="Output_unit">
+                <option value="gramo"> Gramo </option>
+                <option value="kilogramo">Kilogramo </option>
+                <option value="libra">Libra </option>
+            </select>
+            <br />
+                
+
+
+        </fieldset>
+
+        <button id="calcular"> Calcular</button>
+        
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+:root{
+    --color_one: #262626;
+    --color_two: #BFBCBA ;
+    --color_three: #F27C38;
+    --color_four: #F21905;
+    --color_five: #fff ;
+    --coor_six: #736D68 ;
+}
+
+
+body{
+    width: 100%;
+    
+    
+    align-items: center;
+    justify-content: center;
+
+    background: var(--color_one);
+
+
+}
+
+.chart_plot{
+    margin: 1.5% 10% 1.7%;
+    padding: 5%;
+}
+
+.play-btn {
+    margin: auto auto 3%;
+    padding: 3%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--color_three);
+    font-size: 80px;
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+    border-radius: 100%;
+    position: relative;
+
+    /*
+    &:before{
+        animation: pulse_animate 1.5s linear infinite;
+    }*/
+
+}
+
+
+ion-icon {
+    font-size: 64px;
+    color: var(--color_three);
+    cursor: pointer;
+}
+
+#icono_stop{
+    visibility: hidden;
+    position: absolute; /*hijo respecto al elemento*/
+
+    /*
+    position: relative;  
+    bottom: 50px;*/
+}
+
+
+
+
+.play-btn:hover{
+    background: rgb(223, 118, 48);
+}
+
+/*
+.play-btn span{  
+    position: absolute;
+    background: inherit;
+    border-radius: inherit;
+    
+    
+
+}*/
+
+.pulso_animacion { /*modifier class en js*/
+    
+    animation: pulse_animate 1.5s linear infinite;
+    /*
+    position: absolute;
+    background: inherit;
+    border-radius: inherit;
+    opacity: .8;
+    animation-delay: calc(1s * var(--i)) ;funciona con los spans*/ 
+}
+
+
+
+
+@keyframes pulse_animate {
+
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50%{
+        opacity: 0.5;
+        transform: scale(1.22);
+    }
+    
+    100%{
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+
+

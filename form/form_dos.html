@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic table</title>
+
+    <script src="./js/form_dos.js" defer></script>
+    <link rel="stylesheet" href="./css/form_dos.css">
+</head>
+<body>
+    <div class="ingreso">
+        <fieldset>
+            <legend>Datos Perro </legend>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" placeholder= "Ingresar nombre..." id="nombre">
+            <br />
+
+            <label for="nacimiento">Nacimiento</label>
+            <input type="date" placeholder= "Fecha nacimiento" id="nacimiento">
+            <span id = "message" style="color:red"> </span>
+            <br />
+
+            <input type="button" id="botton-add" name="añadir" value="Agregar">
+        </fieldset>
+    </div>
+    <div class="datos">
+        <table id="tbl" class="table" style="width:85%">
+            <thead>
+                <th>Nombre</th>
+                <th>Fecha Nacimiento</th>
+                <th>Edad</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+
+        </table>
+    </div>
+    <div>
+        <footer></footer>
+    </div>
+</body>
+</html>

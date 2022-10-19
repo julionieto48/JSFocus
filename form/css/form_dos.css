@@ -1,0 +1,84 @@
+
+.ingreso{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    width: 80%;
+
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.ingreso label {
+    margin: 5px 10px 5px 0;
+}
+
+
+.ingreso fieldset{
+    display: flex;
+    
+}
+
+.ingreso input{
+    
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    
+}
+
+ #botton-add {
+    padding: 10px 20px;
+    background-color: #196774;
+    border: 1px solid #ddd;
+    color: white;
+  }
+  
+
+.ingreso #botton-add:hover {
+    background-color: #363432;
+}
+
+fieldset{
+    justify-content: space-between;
+    max-width: 50%;
+}
+
+
+
+/*____________________________________________________________*/ 
+
+.datos{
+    margin: 8%;
+}
+
+table{
+    background-color: #196774;
+    border-collapse: collapse;
+    max-width: 800px;
+    margin: auto;
+}
+
+table th{
+    background-color: #363432;
+    color: white;
+
+    padding: 10px;
+}
+
+tr{
+    text-align: center;
+    color: #242322 ;
+}
+
+tr:nth-child(even){
+    background-color: #90A19D;
+    color: beige;
+}
+
+td{
+    padding: 5px;
+}

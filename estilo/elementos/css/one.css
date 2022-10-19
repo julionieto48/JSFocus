@@ -1,0 +1,63 @@
+body{
+   background: linear-gradient(-65deg,#21445B,#1A6566,#5D8A66); 
+   background-size: 500%;
+   height: 50%;
+
+   animation: gradiente_descendente 30s ease infinite;
+}
+
+@keyframes gradiente_descendente {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+} 
+
+span{
+    display: block;
+}
+
+p{
+    background-color: #323050 ;
+    max-width: 600px;  /*max de la pantalla*/
+    margin: auto;
+
+    position: relative; /*tiene una posicion respecto a si mismo*/
+    left: 5% ; /*lee de izda a dcha desde mi perspectiva*/
+}
+
+section{
+    background-color: #323050 ;
+    max-width: 600px;
+    margin: auto;
+    position: relative; 
+    left: 20% ;
+    bottom: 40%;
+}
+
+span{
+    background-color: #323050 ;
+    max-width: 600px;
+    margin: auto;
+    position: relative; 
+       
+
+}
+
+div #flow{
+    margin: auto;
+    width: 100px;
+    height: 100px;
+
+    overflow: auto;
+}
+
+
+img{
+    float: right;
+}

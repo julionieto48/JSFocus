@@ -1,0 +1,42 @@
+body{
+    margin: auto;
+}
+
+.box{
+    margin: 8px; /*genera separacion entre contenido y el elemento superior*/
+    padding: 10px;
+    background-color: blueviolet;
+    border-style: outset inset;
+
+
+}
+
+.my_box{
+    background-color: aquamarine;
+    padding: 10px;
+    border-style: solid dotted groove;
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+.box_inside .header{
+    padding: 10px 20px;
+}
+
+.footer{
+    padding: 10px;
+    border-top: solid 1px ;
+}
+
+button:hover{
+    background-color: azure;
+
+}
+
+button:active{
+    background-color: blue;
+}
+
+button::after{
+    background-color: brown;
+}

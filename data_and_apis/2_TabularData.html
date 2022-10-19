@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+</head>
+<body>
+
+    <canvas id="recuadro" width="400" height="400"></canvas>
+
+    <script >
+        const xlabels = [] ; 
+        const yvalues = [] ; 
+        chartCreation() ;
+        
+
+        async function chartCreation(){
+            await getDatos();
+            const ctx = document.getElementById('recuadro').getContext('2d');
+
+            
+
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: xlabels,  // apunta a un array
+                    datasets: [{
+                        label: 'Esperanza de Vida',
+                        data: yvalues,
+                        fill: false , 
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                }
+            });
+
+        }
+
+        
+
+
+        // datos ... no puedo grafica rprimero y despues tomar los datos
+        
+        async function getDatos(){
+            const response = await fetch('./datos/median-age.csv');
+            const data =await response.text();
+            //console.log(data);
+
+            const tabla = data.split('\n').slice(1);
+            tabla.forEach(elementcolumna => {
+
+                const columna = elementcolumna.split(',');
+                //console.log(columna);
+
+                const anio = columna[2];
+                xlabels.push(anio);
+
+                const edadMedian = columna[3];
+                yvalues.push(parseFloat(edadMedian));
+                //console.log(anio,edadMedian);
+                
+            });
+
+            
+        }
+        
+    </script>
+    
+</body>
+</html>

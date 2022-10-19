@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="audio_a.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <title>Audio player</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+</head>
+<body>
+
+    <div class="chart_plot">
+        <canvas id="recuadro" width="200" height="60"></canvas>
+
+    </div>
+
+
+    <div class="play-btn">
+        <button id="play" onclick="incrementButton()">
+            <ion-icon id="icono_play" name="play-outline"> 
+                <ion-icon id="icono_stop" name="pause-circle-outline"></ion-icon>
+            </ion-icon> 
+        </button>
+
+        <span class="spansitos" style="--i:0;"></span>
+        <span class="spansitos" style="--i:1;"></span>
+        <span class="spansitos" style="--i:2;"></span>
+        
+    </div>
+    
+
+    <script >
+        /*
+        // trigger css actions ... when play is clicked
+        const esfera = document.querySelector(".play-btn")
+
+        let evento_click_play = document.getElementById("icono_play")  // acceder a los metodos del documento
+        evento_click_play.addEventListener('click', () =>{
+            esfera.classList.toggle("pulso_animacion")
+        })// escuchar el evento  */
+        const esfera = document.querySelector(".play-btn")
+
+        var value = 0 ; // stop 
+                
+        //const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const ctx = new AudioContext(); 
+
+        
+        const channels = 2 ;
+        const dataAudioL = [] ; 
+        const dataAudioR = [] ; 
+               
+        let audio ;
+        let dataAudio ;
+
+        chartCreation() ;       
+         
+
+        async function getDatos(){
+
+        
+            const response = await  fetch('song.mp3') ; 
+            const buff = await response.arrayBuffer();
+            const arrayBuffer = ctx.decodeAudioData(buff); 
+            audio = await arrayBuffer;
+            dataAudio = audio ;
+
+            const buffSrc = ctx.createBufferSource();
+            buffSrc.buffer = dataAudio ;
+            dataAudioL.push(dataAudio.getChannelData(0));
+            dataAudioR.push(dataAudio.getChannelData(1));
+
+            console.log(dataAudioL[0])
+            
+            /*
+            for(let i = 0; i < arrayBuffer.length; i++){
+                for(let channel = 0; channel < channels; channel++){
+                    if(channel == 0){
+                        const pcm = arrayBuffer.getChannelData(0);
+                        //dataAudioL.push(pcm); 
+                        dataAudioR[i] = pcm;
+
+                    } else if(channel == 1){
+                        const pcm = arrayBuffer.getChannelData(1);
+                        //dataAudioR.push(pcm); 
+                        dataAudioL[i] = pcm;
+                    }
+                }
+
+            }
+            */
+           
+            /*
+            fetch('song.mp3').then(data => {
+                data.arrayBuffer();
+                console.log(data)
+            });*/
+
+                                                 
+        }
+
+        async function playBack(){
+            await getDatos();
+            const playSound = ctx.createBufferSource() ;
+            playSound.buffer = audio ;
+            playSound.connect(ctx.destination);
+            playSound.start(ctx.currentTime);
+
+            
+        }
+
+        
+
+        function incrementButton(){
+            var elemento = document.getElementById("play");
+            
+            if (value === 0) {
+                document.getElementById("icono_stop").style.visibility = "hidden"; 
+                document.getElementById("icono_play").style.visibility = "visible";
+            }
+
+            value +=1;  // par = stop    1 = primera vez
+            
+            if(value %  2  == 1 && value == 1){
+                document.getElementById("icono_stop").style.visibility = "visible"; 
+                document.getElementById("icono_play").style.visibility = "hidden"; 
+                playBack();
+                
+                
+            } else if(value %  2  == 0 ){
+                document.getElementById("icono_stop").style.visibility = "hidden"; 
+                document.getElementById("icono_play").style.visibility = "visible";
+                
+               
+                ctx.suspend();
+
+            } else if(value %  2  == 1 && value != 1){
+                document.getElementById("icono_stop").style.visibility = "visible"; 
+                document.getElementById("icono_play").style.visibility = "hidden"; 
+                esfera.classList.toggle("pulso_animacion")
+
+                ctx.resume(); 
+                
+            }
+
+        }
+
+
+        async function chartCreation(){
+            await getDatos();
+            const ctx = document.getElementById('recuadro').getContext('2d');
+           
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    
+                    datasets: [{
+                        label: 'My Song',
+                        data: dataAudioL ,
+                        fill: false , 
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                }
+            });
+
+        }
+
+        
+        
+
+
+      
+
+
+
+       
+
+    
+        
+    </script>
+    
+</body>
+</html>

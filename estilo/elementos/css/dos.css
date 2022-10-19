@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+
+body{
+   background: linear-gradient(-65deg,#21445B,#1A6566,#5D8A66); 
+   background-size: 500%;
+   height: 50%;
+
+   animation: gradiente_descendente 30s ease infinite;
+}
+
+@keyframes gradiente_descendente {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+li, a , button{
+    font-family: "Lato";
+    font-weight: 500;
+    font-size: 16px;
+    color: #360e3b ;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between; /*elemento d el aizd ai dcha van a extremos y el del mitad se calcula*/
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.logo{
+    cursor: pointer;
+}
+
+.links_nav{
+    list-style: none;
+    color: #202022 ;
+}
+.links_nav li{
+    display: inline-block;
+    padding: 0px 20px; /*top botom   and left right*/
+}
+
+.links_nav li a{
+    transition: all 0.3s ease 0s;
+}
+
+.links_nav li a:hover{
+    color:  #454564 ;
+}
+
+button{
+    padding: 9px  25px;
+    background-color: #7873c4;
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover{
+   color:  #878787
+}
+/*_________________________________________________________________________*/
+
+span{
+    display: block;
+}
+
+p{
+    background-color: #323050 ;
+    max-width: 600px;  /*max de la pantalla*/
+    margin: auto;
+
+    position: relative; /*tiene una posicion respecto a si mismo*/
+    left: 5% ; /*lee de izda a dcha desde mi perspectiva*/
+}
+
+section{
+    background-color: #323050 ;
+    max-width: 600px;
+    margin: auto;
+    position: relative; 
+    left: 20% ;
+    bottom: 40%;
+}
+
+span{
+    background-color: #323050 ;
+    max-width: 600px;
+    margin: auto;
+    position: relative; 
+       
+
+}
+
+div #flow{
+    margin: auto;
+    width: 100px;
+    height: 100px;
+
+    overflow: auto;
+}
+
+
+img{
+    float: right;
+}

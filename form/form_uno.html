@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pedido Hamburguesa</title>
+</head>
+<body>
+    <form>
+        <fieldset id="datos_basicos">
+            <legend>Datos Basicos Cocinero</legend>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" placeholder= "Ingresar nombre..." id="nombre">
+            <br />
+
+            <label for="codigo_empleado">Codigo</label>
+            <input type="number" placeholder= "Ingresar codigo..." id="codigo_empleado">
+            <br />
+
+            <label for="contrasena">Contraseña Empleado</label>
+            <input type="password" placeholder= "Ingresar codigo secreto..." id="contrasena">
+            <br />
+
+            <label for="sexo">Sexo</label>
+            <select id="sexo">
+                <option value="macho">Masculino</option>
+                <option value="hembra">Femenino</option>
+            </select>
+
+        </fieldset>
+
+        <div >
+            <ul>
+                
+                <li>Panes</li>
+                    <ul>
+                        <li>Pan Integral</li>
+                        <li>Pan Tradicional</li>
+                        <li>Pan Arabe</li>
+                    </ul>
+
+                <li>Carnes</li>
+                    <ul>
+                        <li>Res</li>
+                        <li>Angus</li>
+                        <li>Pollo Apanado</li>
+                        <li>Tofu Vegetariano</li>
+                    </ul>
+                
+                <li>Vegetales</li>
+                    <ul>
+                        <li>Lechuga</li>
+                        <li>Tomate</li>
+                        <li>Cebolla </li>
+                    </ul>
+                
+            </ul>
+
+        </div>
+
+        <div id= "seleccion_ingredientes">
+            <legend>Seleccion ingredientes</legend>
+
+            <fieldset id="panes">
+                <legend>Panes</legend>
+
+                <label >
+                    <input type="radio" value="Pan Integral" name="panes" > Pan Integral 
+                </label>
+                <label >
+                    <input type="radio" value="Pan Tradicional" name="panes"> Pan Tradicional
+                </label>
+                <label >
+                    <input type="radio" value="Pan Arabe" name="panes"> Pan Arabe
+                </label>
+                
+            </fieldset>
+
+            <fieldset id="carnes">
+                <legend>Carnes</legend>
+
+                <label >
+                    <input type="radio" value= "Res" name="panes" > Res
+                </label>
+                <label >
+                    <input type="radio" value="Angus" name="panes"> Angus
+                </label>
+                <label >
+                    <input type="radio" value="Pollo " name="panes"> Pollo 
+                </label>
+                <label >
+                    <input type="radio" value="Tofu Vegetariano" name="panes"> Tofu Vegetariano
+                </label>
+
+                <label for="peso">Peso</label>
+                <select id="peso">
+                    <option value="150">150 gr</option>
+                    <option value="200">200 gr</option>
+                    <option value="300">300 gr</option>
+                </select>
+
+                <label> <input type="number" placeholder= "Ingresar cantidad..."> cantidad</label>
+
+                <label for="termino_carne">Termino / Coccion</label>
+                <select id="termino_carne">
+                    <option value="Medio"> Medio 1/2</option>
+                    <option value="Tres cuartos">Tres cuartos 3/4 </option>
+                    <option value="Full">Full 4/4 </option>
+                </select>
+
+                <label for="termino_pollo">Termino / Coccion</label>
+                <select id="termino_pollo">
+                    <option value="Apanado"> Apanado </option>
+                    <option value="Frito"> Frito </option>
+                    
+                </select>
+        
+            </fieldset>
+
+
+            <fieldset id="verduras">
+                <legend>Verduras</legend>
+
+                <label >
+                    <input type="checkbox" id="Lechuga" value= "Lechuga"> Lechuga
+                </label>
+                <label >
+                    <input type="checkbox" id="Tomate" value= "Tomate" > Tomate
+                </label>
+                <label >
+                    <input type="checkbox" id="Tomate" value= "Tomate" > Tomate
+                </label>
+                
+                     
+            </fieldset>
+            
+            
+        </div>
+        
+
+        <button> Preparar </button>
+        
+    </form>
+    
+</body>
+</html>
